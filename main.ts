@@ -48,24 +48,28 @@ function ゆっくり点灯 (flg: boolean) {
     } else if (flg == false) {
         LEDNo = randint(0, 143)
         strip.setBrightness(80)
-        strip.setPixelColor(LEDNo, neopixel.colors(NeoPixelColors.Blue))
-        strip.setPixelColor(LEDNo + 1, neopixel.colors(NeoPixelColors.Blue))
-        strip.setPixelColor(LEDNo + 2, neopixel.colors(NeoPixelColors.Blue))
-        strip.setPixelColor(LEDNo + 3, neopixel.colors(NeoPixelColors.Blue))
-        strip.setPixelColor(LEDNo + 4, neopixel.colors(NeoPixelColors.Blue))
-        strip.setPixelColor(LEDNo + 5, neopixel.colors(NeoPixelColors.Blue))
-        strip.setPixelColor(LEDNo + 6, neopixel.colors(NeoPixelColors.Blue))
-        strip.show()
-        basic.pause(50)
-        strip.setPixelColor(LEDNo, neopixel.colors(NeoPixelColors.Black))
-        strip.setPixelColor(LEDNo + 1, neopixel.colors(NeoPixelColors.Black))
-        strip.setPixelColor(LEDNo + 2, neopixel.colors(NeoPixelColors.Black))
-        strip.setPixelColor(LEDNo + 3, neopixel.colors(NeoPixelColors.Black))
-        strip.setPixelColor(LEDNo + 4, neopixel.colors(NeoPixelColors.Black))
-        strip.setPixelColor(LEDNo + 5, neopixel.colors(NeoPixelColors.Black))
-        strip.setPixelColor(LEDNo + 6, neopixel.colors(NeoPixelColors.Black))
-        strip.show()
-        basic.pause(50)
+        i = 0
+        for (let index = 0; index < 20; index++) {
+            strip.setPixelColor(LEDNo, neopixel.colors(NeoPixelColors.White))
+            strip.rotate(1)
+            strip.show()
+            basic.pause(20)
+            i += 1
+        }
+        i = 0
+        for (let index = 0; index < 20; index++) {
+            strip.rotate(1)
+            strip.show()
+            basic.pause(20)
+        }
+        i = 0
+        for (let index = 0; index < 20; index++) {
+            strip.setPixelColor(LEDNo + (i + 20), neopixel.colors(NeoPixelColors.Black))
+            strip.show()
+            basic.pause(20)
+            i += 1
+        }
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
     }
 }
 input.onButtonPressed(Button.A, function () {
