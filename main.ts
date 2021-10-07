@@ -78,33 +78,15 @@ input.onButtonPressed(Button.A, function () {
 function コメット (flg: boolean) {
     if (flg == true) {
         strip.setBrightness(80)
-        LEDNo = 0
-        strip.setPixelColor(LEDNo, neopixel.hsl(3, 200, 25))
-        strip.setPixelColor(LEDNo + 1, neopixel.hsl(6, 200, 25))
-        strip.setPixelColor(LEDNo + 2, neopixel.hsl(9, 200, 25))
-        strip.setPixelColor(LEDNo + 3, neopixel.hsl(12, 200, 25))
-        strip.setPixelColor(LEDNo + 4, neopixel.hsl(16, 200, 25))
-        strip.setPixelColor(LEDNo + 30, neopixel.hsl(93, 200, 25))
-        strip.setPixelColor(LEDNo + 31, neopixel.hsl(96, 200, 25))
-        strip.setPixelColor(LEDNo + 32, neopixel.hsl(99, 200, 25))
-        strip.setPixelColor(LEDNo + 33, neopixel.hsl(102, 200, 25))
-        strip.setPixelColor(LEDNo + 34, neopixel.hsl(105, 200, 25))
-        strip.setPixelColor(LEDNo + 60, neopixel.hsl(183, 200, 25))
-        strip.setPixelColor(LEDNo + 61, neopixel.hsl(186, 200, 25))
-        strip.setPixelColor(LEDNo + 62, neopixel.hsl(189, 200, 25))
-        strip.setPixelColor(LEDNo + 63, neopixel.hsl(192, 200, 25))
-        strip.setPixelColor(LEDNo + 64, neopixel.hsl(195, 200, 25))
-        strip.setPixelColor(LEDNo + 90, neopixel.hsl(270, 200, 25))
-        strip.setPixelColor(LEDNo + 91, neopixel.hsl(273, 200, 25))
-        strip.setPixelColor(LEDNo + 92, neopixel.hsl(276, 200, 25))
-        strip.setPixelColor(LEDNo + 93, neopixel.hsl(279, 200, 25))
-        strip.setPixelColor(LEDNo + 94, neopixel.hsl(282, 200, 25))
-        strip.setPixelColor(LEDNo + 120, neopixel.hsl(343, 200, 25))
-        strip.setPixelColor(LEDNo + 121, neopixel.hsl(346, 200, 25))
-        strip.setPixelColor(LEDNo + 122, neopixel.hsl(349, 200, 25))
-        strip.setPixelColor(LEDNo + 123, neopixel.hsl(352, 200, 25))
-        strip.setPixelColor(LEDNo + 124, neopixel.hsl(355, 200, 25))
-        strip.show()
+        i = 0
+        for (let index = 0; index < 5; index++) {
+            j = 0
+            for (let index = 0; index < 5; index++) {
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j * 10, 200, 25))
+                j += 1
+            }
+            i += 1
+        }
     } else if (flg == false) {
         strip.rotate(2)
         strip.show()
@@ -120,7 +102,7 @@ function ゆっくり点灯3 (flg: boolean) {
         SIN = 15 * Math.sin(明るさ) + 15
         strip.setBrightness(SIN)
         strip.showColor(neopixel.colors(NeoPixelColors.Red))
-        basic.pause(100)
+        basic.pause(40)
     }
 }
 input.onSound(DetectedSound.Loud, function () {
