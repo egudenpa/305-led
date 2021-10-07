@@ -5,21 +5,21 @@ function ゆっくり点灯2 (flg: boolean) {
         LEDNo = 0
     } else if (flg == false) {
         SIN = 40 * Math.sin(明るさ) + 40
-        if (SIN <= 0.2) {
-            LEDNo = randint(0, 144)
+        if (SIN <= 0.1) {
+            LEDNo = randint(0, 30)
         }
         strip.setBrightness(SIN)
         i = 0
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index = 0; index < 5; index++) {
-                strip.setPixelColor(i * 28 + j, neopixel.hsl(i * 72 + j, 200, 20))
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j, 200, 20))
                 j += 1
             }
             i += 1
         }
-        strip.rotate(3)
         strip.show()
+        strip.rotate(1)
         明るさ += 0.2
         basic.pause(10)
     }
@@ -48,33 +48,25 @@ function ゆっくり点灯 (flg: boolean) {
     } else if (flg == false) {
         LEDNo = randint(0, 143)
         strip.setBrightness(80)
-    }
-    i = 0
-    for (let index = 0; index < 30; index++) {
-        strip.setPixelColor(LEDNo + i, neopixel.colors(NeoPixelColors.White))
+        strip.setPixelColor(LEDNo, neopixel.colors(NeoPixelColors.Blue))
+        strip.setPixelColor(LEDNo + 1, neopixel.colors(NeoPixelColors.Blue))
+        strip.setPixelColor(LEDNo + 2, neopixel.colors(NeoPixelColors.Blue))
+        strip.setPixelColor(LEDNo + 3, neopixel.colors(NeoPixelColors.Blue))
+        strip.setPixelColor(LEDNo + 4, neopixel.colors(NeoPixelColors.Blue))
+        strip.setPixelColor(LEDNo + 5, neopixel.colors(NeoPixelColors.Blue))
+        strip.setPixelColor(LEDNo + 6, neopixel.colors(NeoPixelColors.Blue))
         strip.show()
-        basic.pause(10)
-        i += 1
-    }
-    i = 0
-    for (let index = 0; index < 30; index++) {
-        strip.rotate(1)
+        basic.pause(50)
+        strip.setPixelColor(LEDNo, neopixel.colors(NeoPixelColors.Black))
+        strip.setPixelColor(LEDNo + 1, neopixel.colors(NeoPixelColors.Black))
+        strip.setPixelColor(LEDNo + 2, neopixel.colors(NeoPixelColors.Black))
+        strip.setPixelColor(LEDNo + 3, neopixel.colors(NeoPixelColors.Black))
+        strip.setPixelColor(LEDNo + 4, neopixel.colors(NeoPixelColors.Black))
+        strip.setPixelColor(LEDNo + 5, neopixel.colors(NeoPixelColors.Black))
+        strip.setPixelColor(LEDNo + 6, neopixel.colors(NeoPixelColors.Black))
         strip.show()
-        basic.pause(10)
+        basic.pause(50)
     }
-    LEDNo = LEDNo + 30
-    i = 0
-    for (let index = 0; index < 30; index++) {
-        if (LEDNo + i <= 143) {
-            strip.setPixelColor(LEDNo + i, neopixel.colors(NeoPixelColors.Black))
-        } else {
-            strip.setPixelColor(LEDNo + i - 144, neopixel.colors(NeoPixelColors.Black))
-        }
-        strip.show()
-        basic.pause(10)
-        i += 1
-    }
-    strip.showColor(neopixel.colors(NeoPixelColors.Black))
 }
 input.onButtonPressed(Button.A, function () {
     basic.showString("" + (MODE))
@@ -187,7 +179,6 @@ strip = neopixel.create(DigitalPin.P0, 144, NeoPixelMode.RGB)
 music.setVolume(30)
 soundExpression.happy.play()
 MODE = 1
-input.setSoundThreshold(SoundThreshold.Loud, 128)
 CHECKMODE()
 basic.forever(function () {
     SHOWAURA()
