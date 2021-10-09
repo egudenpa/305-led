@@ -178,7 +178,6 @@ strip = neopixel.create(DigitalPin.P0, 150, NeoPixelMode.RGB)
 music.setVolume(30)
 soundExpression.happy.play()
 MODE = 1
-input.setSoundThreshold(SoundThreshold.Loud, 30)
 CHECKMODE()
 basic.forever(function () {
     SHOWAURA()
