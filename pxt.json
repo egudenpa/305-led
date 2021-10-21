@@ -1,5 +1,5 @@
 {
-    "name": "306-ハロウィンLED",
+    "name": "305-ハロウィンLED",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -23,5 +23,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "pyprj"
 }
