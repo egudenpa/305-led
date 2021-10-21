@@ -28,7 +28,7 @@ def コメット(flg: bool):
         for index in range(5):
             j = 0
             for index2 in range(7):
-                strip.set_pixel_color(i * 29 + j, neopixel.hsl(i * 60 + j * 6, 200, 25))
+                strip.set_pixel_color(i * 29 + j, neopixel.hsl(0, 0, 0))
                 j += 1
             i += 1
     elif flg == False:
@@ -49,7 +49,7 @@ def 虹色ウェーブ(flg2: bool):
         for index3 in range(15):
             j = 0
             for index4 in range(1):
-                strip.set_pixel_color(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 25))
+                strip.set_pixel_color(i * 10 + j, neopixel.hsl(0, 0, 0))
                 j += 1
             i += 1
         strip.rotate(1)
@@ -152,7 +152,7 @@ def レインボー切り替え(flg6: bool):
         色相 = 0
     elif flg6 == False:
         色相 += 10
-        strip.show_color(neopixel.hsl(色相, 200, 25))
+        strip.show_color(neopixel.hsl(0, 0, 0))
         電流値()
         basic.pause(100)
         if 色相 >= 260:
