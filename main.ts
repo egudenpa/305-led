@@ -26,7 +26,11 @@ function コメット (flg: boolean) {
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index = 0; index < 7; index++) {
-                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j, 200, 25))
+                LEDNo = i * 29 + j
+                色相 = i * 60 + j * 5
+                彩度 = 200
+                輝度 = 25
+                strip.setPixelColor(LEDNo, neopixel.hsl(色相, 彩度, 輝度))
                 j += 1
             }
             i += 1
@@ -50,7 +54,11 @@ function 虹色ウェーブ (flg2: boolean) {
         for (let index = 0; index < 15; index++) {
             j = 0
             for (let index = 0; index < 1; index++) {
-                strip.setPixelColor(i * 10 + j, neopixel.hsl(i * 24 + j, 200, 25))
+                LEDNo = i * 10 + j
+                色相 = i * 24 + j * 3
+                彩度 = 200
+                輝度 = 25
+                strip.setPixelColor(LEDNo, neopixel.hsl(色相, 彩度, 輝度))
                 j += 1
             }
             i += 1
@@ -157,7 +165,9 @@ function レインボー切り替え (flg6: boolean) {
         色相 = 0
     } else if (flg6 == false) {
         色相 += 10
-        strip.showColor(neopixel.hsl(色相, 200, 25))
+        彩度 = 200
+        輝度 = 25
+        strip.showColor(neopixel.hsl(色相, 彩度, 輝度))
         電流値()
         basic.pause(100)
         if (色相 >= 260) {
@@ -165,9 +175,11 @@ function レインボー切り替え (flg6: boolean) {
         }
     }
 }
-let 色相 = 0
 let 明るさ = 0
 let SIN = 0
+let 輝度 = 0
+let 彩度 = 0
+let 色相 = 0
 let LEDNo = 0
 let j = 0
 let i = 0
