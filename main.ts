@@ -1,6 +1,9 @@
 function ゆっくり点灯2 (flg: boolean) {
     if (flg == true) {
         strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        HUE = 0
+        SATURATION = 100
+        LUMINOSITY = 80
         strip.setBrightness(80)
         LEDNo = 0
     } else if (flg == false) {
@@ -13,7 +16,7 @@ function ゆっくり点灯2 (flg: boolean) {
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index = 0; index < 5; index++) {
-                strip.setPixelColor(i * 29 + j, neopixel.hsl(0, 0, 0))
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(HUE, SATURATION, LUMINOSITY))
                 j += 1
             }
             i += 1
@@ -78,11 +81,14 @@ input.onButtonPressed(Button.A, function () {
 function コメット (flg: boolean) {
     if (flg == true) {
         strip.setBrightness(80)
+        HUE = 0
+        SATURATION = 100
+        LUMINOSITY = 30
         i = 0
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index = 0; index < 5; index++) {
-                strip.setPixelColor(i * 29 + j, neopixel.hsl(0, 0, 0))
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(HUE, SATURATION, LUMINOSITY))
                 j += 1
             }
             i += 1
@@ -95,6 +101,7 @@ function コメット (flg: boolean) {
 function ゆっくり点灯3 (flg: boolean) {
     if (flg == true) {
         strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        SATURATION += 1
         strip.setBrightness(80)
         明るさ = 0
     } else if (flg == false) {
@@ -143,10 +150,13 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 function レインボー切り替え (flg: boolean) {
     if (flg == true) {
         strip.setBrightness(80)
+        HUE = 0
+        SATURATION = 100
+        LUMINOSITY = 30
         色相 = 0
     } else if (flg == false) {
         色相 += 10
-        strip.showColor(neopixel.hsl(0, 0, 0))
+        strip.showColor(neopixel.hsl(色相, SATURATION, 明るさ))
         basic.pause(100)
         if (色相 >= 260) {
             色相 = 0
@@ -159,6 +169,9 @@ let i = 0
 let 明るさ = 0
 let SIN = 0
 let LEDNo = 0
+let LUMINOSITY = 0
+let SATURATION = 0
+let HUE = 0
 let MODE = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P2, 144, NeoPixelMode.RGB)
