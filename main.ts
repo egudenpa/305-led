@@ -13,7 +13,7 @@ function ゆっくり点灯2 (flg: boolean) {
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index = 0; index < 5; index++) {
-                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j, 200, 20))
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(0, 0, 0))
                 j += 1
             }
             i += 1
@@ -82,7 +82,7 @@ function コメット (flg: boolean) {
         for (let index = 0; index < 5; index++) {
             j = 0
             for (let index = 0; index < 5; index++) {
-                strip.setPixelColor(i * 29 + j, neopixel.hsl(i * 72 + j * 10, 200, 25))
+                strip.setPixelColor(i * 29 + j, neopixel.hsl(0, 0, 0))
                 j += 1
             }
             i += 1
@@ -146,7 +146,7 @@ function レインボー切り替え (flg: boolean) {
         色相 = 0
     } else if (flg == false) {
         色相 += 10
-        strip.showColor(neopixel.hsl(色相, 200, 25))
+        strip.showColor(neopixel.hsl(0, 0, 0))
         basic.pause(100)
         if (色相 >= 260) {
             色相 = 0
@@ -161,7 +161,7 @@ let SIN = 0
 let LEDNo = 0
 let MODE = 0
 let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 144, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P2, 144, NeoPixelMode.RGB)
 music.setVolume(30)
 soundExpression.happy.play()
 MODE = 1
